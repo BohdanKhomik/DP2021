@@ -10,14 +10,15 @@ package org.obrii.mit.dp2021.khomik.mavenproject3;
  * @author ПК
  */
 public class LoginServlet {
+
     private int id;
     private String name;
     private String surname;
     
-    public LoginData() {
+    public LoginServlet() {
     }
 
-    public LoginData(int id, String name, String surname) {
+    public LoginServlet(int id, String name, String surname) {
         this.id = id;
         this.name = name;
         this.surname = surname;
