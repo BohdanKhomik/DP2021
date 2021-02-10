@@ -9,9 +9,12 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css">
+    <link href="assets/css/cocibibu.css" rel="stylesheet" type="text/css">
     <title>Khomik page`s</title>
   </head>
+  <style type='text/css'>
+      
+  </style>
   <body>
 
     <div class="page">
@@ -37,29 +40,7 @@
             </a>
           </div>
 
-          <nav class="header__nav nav">
-            <ul class="nav__inner">
-              <li class="nav__item">
-                <a href="#" class="nav__link">Cars</a>
-              </li>
 
-              <li class="nav__item">
-                <a href="<%=request.getContextPath()%>/pages/form.jsp" class="nav__link">Form</a>
-              </li>
-
-              <li class="nav__item">
-                <a href="#" class="nav__link">History</a>
-              </li>
-
-              <li class="nav__item">
-                <a href="#" class="nav__link">Gallery</a>
-              </li>
-
-              <li class="nav__item">
-                <a href="#" class="nav__link">Rides</a>
-              </li>
-            </ul>
-          </nav>
         </header>
 
         <div class="inner">
@@ -76,6 +57,5 @@
         </div>
       </section>
     </div>
-
   </body>
 </html>

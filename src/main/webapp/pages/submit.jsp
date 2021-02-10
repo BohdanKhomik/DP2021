@@ -9,11 +9,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.min.css">
-    <title>MiToProj | Submit</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css">
+    <title>Khomik page`s</title>
   </head>
   <body>
-    <%@page import="java.util.List, org.obrii.mit.dp2021.toloshnyi.dp2021project.User"%>
+    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.User"%>
 
     <% User user = (User) request.getAttribute("user");%>
 
