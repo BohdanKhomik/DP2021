@@ -18,18 +18,23 @@ public class User {
     private int id;
     private String name;
     private String surname;
-    private List<String> countries;
-    private String configuration;
-    
+    private String email;
+    private String gender;
+    private String day;
+    private String month;
+    private String year;    
     public User() {
     }
     
-    public User(String name, String surname, String[] countries, String configuration) {
+    public User(String name, String surname,String email,String gender, String day, String month,String year) {
         this.name = name;
         this.surname = surname;
-        if (countries != null) this.countries = Arrays.asList(countries);
-        this.configuration = configuration;
-        
+        this.email = email;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.gender = gender;
+
     }
 
     public int getId() {
@@ -47,7 +52,20 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
     public String getSurname() {
         return surname;
     }
@@ -55,20 +73,29 @@ public class User {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
-    public List<String> getCountries() {
-        return countries;
+    
+    public String getYear() {
+        return year;
     }
 
-    public void setCountries(List<String> countries) {
-        this.countries = countries;
+    public void setYear(String year) {
+        this.year = year;
+    }
+    
+    public String getMonth() {
+        return month;
     }
 
-    public String getConfiguration() {
-        return configuration;
+    public void setMonth(String month) {
+        this.month = month;
+    }
+    
+
+    public String getDay() {
+        return day;
     }
 
-    public void setConfiguration(String configuration) {
-        this.configuration = configuration;
+    public void setDay(String day) {
+        this.day = day;
     }
 }

@@ -59,10 +59,13 @@ public class NewServlet extends HttpServlet {
         User user = new User(
                 request.getParameter("name"),
                 request.getParameter("surname"),
-                request.getParameterValues("countries"),
-                request.getParameter("configuration")
+                request.getParameter("email"),
+                request.getParameter("gender"),
+                request.getParameter("day"),
+                request.getParameter("month"),
+                request.getParameter("year")                                
         );
-        
+        System.out.println(user.getGender()+"dsdfdfdfdffffffffffffffffffffffffffffffffffffffffffff");
         request.setAttribute("user", user);
         request.getRequestDispatcher("pages/submit.jsp").forward(request, response);
     }
