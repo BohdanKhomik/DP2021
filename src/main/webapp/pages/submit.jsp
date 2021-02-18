@@ -29,16 +29,16 @@
                 <div class="nav">
                     <ul class="nav_ul">
                         <li>
-                            <a class="nav_item" href="index.html"><span class="text">Main</span></a>
+                            <a class="nav_item" href="#"><span class="text">Main</span></a>
                         </li>
                         <li>
-                            <a class="nav_item" href="menu.html"><span class="text">Films</span></a>
+                            <a class="nav_item" href="#"><span class="text">Films</span></a>
                         </li>
                         <li>
-                            <a class="nav_item" href="about.html"><span class="text">Serials</span></a>
+                            <a class="nav_item" href="#"><span class="text">Serials</span></a>
                         </li>
                         <li>
-                            <a class="nav_item" href="contacts.html"><span class="text">Contacts</span></a>
+                            <a class="nav_item" href="#"><span class="text">Contacts</span></a>
                         </li>
                     </ul>
                 </div>
