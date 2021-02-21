@@ -25,7 +25,7 @@ import org.obrii.mit.dp2021.khomik.mavenproject3.display.OldDisplayInterface;
  *
  * @author ПК
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/form"})
+@WebServlet(name = "Servlet", urlPatterns = {"/form"})
 
 public class Servlet extends HttpServlet {
 

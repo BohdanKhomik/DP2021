@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,9 +15,9 @@
     <title>Khomik page`s</title>
   </head>
   <body>
-    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.User"%>
+    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.user.User"%>
 
-    <% User user = (User) request.getAttribute("user");%>
+    <% List<String> messages = (List<String>) request.getAttribute("messages");%>
 
     <header class="header">
         <div class="container header_container">
