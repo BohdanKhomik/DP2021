@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package org.obrii.mit.dp2021.khomik.mavenproject3;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,7 +17,6 @@ import org.obrii.mit.dp2021.khomik.mavenproject3.user.User;
 import org.obrii.mit.dp2021.khomik.mavenproject3.user.UserInterface;
 import org.obrii.mit.dp2021.khomik.mavenproject3.display.ChildDisplayNew;
 import org.obrii.mit.dp2021.khomik.mavenproject3.display.ChildDisplayOld;
-import org.obrii.mit.dp2021.khomik.mavenproject3.display.ChildNewAbstractDisplay;
 import org.obrii.mit.dp2021.khomik.mavenproject3.display.Display;
 import org.obrii.mit.dp2021.khomik.mavenproject3.display.NewDisplayInterface;
 import org.obrii.mit.dp2021.khomik.mavenproject3.display.OldDisplayInterface;

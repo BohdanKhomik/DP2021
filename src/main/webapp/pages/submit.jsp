@@ -61,17 +61,9 @@
 
           <p class="section_title">
 
-            Hello <span>
-              <%=user.getName()%> <%=user.getSurname()%>
-            </span>. 
-            Your email : <span>
-              <%=user.getEmail()%>
-            </span>
-            , You born : <%=user.getDay()%> <%=user.getMonth()%> <%=user.getYear()%>
-
-            <span> And you are a 
-              <%=user.getGender()%>
-            </span>.
+            <% for (String message : messages) {%>
+              <p><%=message%></p>
+              <%}%>
           </p>
           <form action="<%=request.getContextPath()%>">
             <button class="section_btn btn" type="submit">Click TO Back</button>
