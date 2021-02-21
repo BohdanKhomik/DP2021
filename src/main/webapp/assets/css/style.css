@@ -393,7 +393,13 @@ body {
 .inner{
     z-index: 100;
 }
-
+.diag{
+    text-align: center;
+    background: lime;
+}
+.diagrams{
+    margin: 50px;
+}
 @media(max-width: 1200px) {
     .nav_item {
         font-size: 16px;

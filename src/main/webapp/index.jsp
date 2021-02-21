@@ -52,5 +52,8 @@
             </form>
         </div>
     </div>
+    <div class=" diag">
+        <p><img class="diagrams" src="assets/imgs/diagram.jpg" alt=""></p>          
+    </div>
   </body>
 </html>
