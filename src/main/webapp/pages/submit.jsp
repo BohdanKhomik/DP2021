@@ -15,9 +15,9 @@
     <title>Khomik page`s</title>
   </head>
   <body>
-    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.user.User"%>
+    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.User"%>
 
-    <% List<String> messages = (List<String>) request.getAttribute("messages");%>
+    <% String message = (String) request.getAttribute("message");%>
 
     <header class="header">
         <div class="container header_container">
@@ -60,10 +60,7 @@
           <h2 class="section_subtitle boom">Now You can see the result of the form</h2>
 
           <p class="section_title">
-
-            <% for (String message : messages) {%>
-              <p><%=message%></p>
-              <%}%>
+              <p class = "section_title"><%=message%></p>
           </p>
           <form action="<%=request.getContextPath()%>">
             <button class="section_btn btn" type="submit">Click TO Back</button>

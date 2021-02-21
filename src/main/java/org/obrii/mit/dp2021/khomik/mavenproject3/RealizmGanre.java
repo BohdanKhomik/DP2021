@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.obrii.mit.dp2021.khomik.mavenproject3.user;
+package org.obrii.mit.dp2021.khomik.mavenproject3;
 
 /**
  *
  * @author ПК
  */
-public interface UserInterface {
-    public String getName();
+public class RealizmGanre implements GanreInterface{
+    @Override
+    public String getName() {
+        return "realism";
+    }
 }

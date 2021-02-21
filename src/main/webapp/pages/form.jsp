@@ -55,34 +55,27 @@
 
             <form class="form" action="<%=request.getContextPath()%>/form" method="post">
             <input type="hidden" name="title" value="Submitted">
-            
             <p><input class="form__input" type="text" name="name" placeholder="First name" required></p>
-            <p><input class="form__input" type="radio" name="message" value="parent" checked>
-                      <span>parent</span>
-            </p>
-            <p><input class="form__input" type="radio" name="message" value="overriden">
-                      <span>overriden</span>
-            </p>
-            <p><input class="form__input" type="radio" name="interface" value="old" checked>
-                      <span>old</span>
-            </p>
-            <p><input class="form__input" type="radio" name="interface" value="new">
-                      <span>new</span>
-            </p>
-            <div class="form__blck">
-                <span class="form__input">Gender:</span>
-                <div class="input__outer">
-                    <div class="form__wrapper">
-                        <input class="form__input" type="radio" name="gender" value="male" id="open">
-                        <label class="form__label form__label--radio" for="man">Man</label>
-                    </div>
-
-                    <div class="form__wrapper">
-                        <input class="form__input" type="radio" name="gender" value="female" id="close">
-                        <label class="form__label form__label--radio" for="Woman">Woman</label>
-                    </div>
-                </div>
+            <p><input class="form__input" type="text" name="age" placeholder="Age" required></p>
+            <span class="form__input">What are you like?</span>
+            <div class="form_wrapper">
+                <input class="form__input" type="radio" name="test" value="films">
+                <label class="label" for="films">Films</label> 
+                <input class="form__input" type="radio" name="test" value="serials">
+                <label class="label" for="serials">Serials</label>
             </div>
+            <span class="form__input">What ganre of Films are you like?</span>
+            <div class="form__wrapper">
+                <input class="form__input" type="radio" name="ganre" value="fantastic">
+                <label class="label" for="fantastic">Fantastic</label>
+                <input class="form__input" type="radio" name="ganre" value="realism">
+                <label class="label" for="realism">Realism</label>
+                <input class="form__input" type="radio" name="ganre" value="any">
+                <label class="label" for="any">Any</label>
+            </div>
+            
+            
+            
             <button class="section_btn btn" type="submit">Submit</button>
         </form>
         </div>

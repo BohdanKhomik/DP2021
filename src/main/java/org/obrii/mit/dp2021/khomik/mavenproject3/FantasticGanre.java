@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.obrii.mit.dp2021.khomik.mavenproject3.display;
+package org.obrii.mit.dp2021.khomik.mavenproject3;
 
 /**
  *
  * @author ПК
  */
-public interface OldDisplayInterface {
-    public String getMessage();
+public class FantasticGanre implements GanreInterface{
+
+    @Override
+    public String getName() {
+        return "fantastic";
+    }
+    
 }
