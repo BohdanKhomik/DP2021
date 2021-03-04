@@ -65,8 +65,4 @@ public class Data implements Serializable{
         return "Data{" + "id=" + id + ", name=" + name + ", age=" + age + ", email=" + email + '}';
     }
     
-    
-    
-    
-    
 }
