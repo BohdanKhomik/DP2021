@@ -11,30 +11,28 @@ import java.util.List;
  * @author ПК
  */
 public class StoreCrud implements DataCrudInterface {
+
     private List<Data> dataList = Store.getStore();
 
-    public StoreCrud() {
-    }
-   
     @Override
-    public void createData (Data data){
-    data.setNumber(dataList.size());
-    dataList.add(data);
+    public void createData(Data data) {
+        data.setId(dataList.size());
+        dataList.add(data);
     }
-    
+
     @Override
-    public List<Data> readData(){
-    return dataList;
+    public List<Data> readData() {
+        return dataList;
     }
-    
+
     @Override
-    public void updateData(int number, Data data){
-    data.setNumber(number);
-    dataList.set(number, data);
+    public void updateData(int id, Data data) {
+        data.setId(id);
+        dataList.set(id, data);
     }
-    
+
     @Override
-    public void deleteData(int number){
-        dataList.remove(number);
+    public void deleteData(int id) {
+        dataList.remove(id);
     }
 }

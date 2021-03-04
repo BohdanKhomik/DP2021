@@ -18,15 +18,8 @@ public class Data implements Serializable{
     private int age;
     private String test;
     private String ganre;
-    private int i0;
 
-    public String getGanre() {
-        return ganre;
-    }
 
-    public void setGanre(String ganre) {
-        this.ganre = ganre;
-    }
 
     public Data() {
     }
@@ -39,13 +32,6 @@ public class Data implements Serializable{
         this.test = ganre;
     }
 
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
-    }
 
     public int getId() {
         return id;
@@ -71,6 +57,23 @@ public class Data implements Serializable{
         this.age = age;
     }
 
+    public String getGanre() {
+        return ganre;
+    }
+
+    public void setGanre(String ganre) {
+        this.ganre = ganre;
+    }
+    
+    
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+    
     @Override
     public String toString() {
         return "Data{" + "id=" + id + ", name=" + name + ", age=" + age + ", test=" + test + ", ganre=" + ganre + '}';

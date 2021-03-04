@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>DataCrudServlet</servlet-name>
-        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.DataCrudServlet</servlet-class>
+        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.FormServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FormServlet</servlet-name>

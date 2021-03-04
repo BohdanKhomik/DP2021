@@ -18,7 +18,7 @@ public class Store {
     
     private Store(){
         dataStore = new ArrayList<>();
-        dataStore.add(new Data(0, "Bohdan", 19,"films", "fantastic"));
+        dataStore.add(new Data(0, "Bohdan", 19, "films", "fantastic"));
     }
     
     public static Store getInstanse(){

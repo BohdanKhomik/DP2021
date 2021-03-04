@@ -1,11 +1,10 @@
 <%-- 
-    Document   : submit
-    Created on : 3 лют. 2021 р., 14:34:20
+    Document   : index
+    Created on : 3 лют. 2021 р., 14:24:10
     Author     : 38068
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,10 +14,6 @@
     <title>Khomik page`s</title>
   </head>
   <body>
-    <%@page import="java.util.List, org.obrii.mit.dp2021.khomik.mavenproject3.User"%>
-
-    <% String message = (String) request.getAttribute("message");%>
-
     <header class="header">
         <div class="container header_container">
             <div class="logotipe">
@@ -52,30 +47,41 @@
                 </div>
             </div>
         </div>
+       
     </header>
-
+   </form>
     <div class="section">
-        <div class="inner">
-          <h1 class="section_subtitle boom">Nice to see You here</h1>
-          <h2 class="section_subtitle boom">Now You can see the result of the form</h2>
+            <div class="form_container">
+            <h1 class="main_title">Fill the form</h1>
 
-          <p class="section_title">
-              <p class = "section_title"><%=message%></p>
-          </p>
-          <form action="<%=request.getContextPath()%>">
-            <button class="section_btn btn" type="submit">Click TO Back</button>
-          </form>
+            <form class="form" action="<%=request.getContextPath()%>/form" method="post">
+            <input type="hidden" name="number" value="0"/>
+            <p><input class="form__input" type="text" name="name" placeholder="<%=request.getParameter("name")%>" required></p>
+            <p><input class="form__input" type="text" name="age" placeholder="<%=request.getParameter("age")%>" required></p>
+            <span class="form__input">What are you like?</span>
+            
+            <div class="form_wrapper">
+                <%if (request.getParameter("test").equals("films")) {%>   
+                <input class="form__input" type="radio" name="test" value="films" checked>
+                <label class="label" for="films">Films</label> 
+                <input class="form__input" type="radio" name="test" value="serials">
+                <label class="label" for="serials">Serials</label>
+            </div>
+            <span class="form__input">What ganre of Films are you like?</span>
+            <div class="form__wrapper">
+                <input class="form__input" type="radio" name="ganre" value="fantastic">
+                <label class="label" for="fantastic">Fantastic</label>
+                <input class="form__input" type="radio" name="ganre" value="realism">
+                <label class="label" for="realism">Realism</label>
+                <input class="form__input" type="radio" name="ganre" value="any">
+                <label class="label" for="any">Any</label>
+            </div>
+            
+            
+            
+            <button class="section_btn btn" type="submit">Submit</button>
+        </form>
         </div>
-      </section>
     </div>
   </body>
 </html>
-<%--
-        <p>Alternative User display:</p>
-        <p>Name: <%=user.getName()%></p>
-        <p>(or even this way)</p>
-        <p>Name: <%=request.getParameter("name")%></p>
-        <p>Gender: <%=user.getGender()%></p>
-        <p>Languages: <%=user.getLanguage()%></p>
-        <p>Country: <%=user.getCountry()%></p>
---%>

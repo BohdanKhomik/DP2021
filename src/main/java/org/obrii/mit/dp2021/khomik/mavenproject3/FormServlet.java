@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ПК
  */
-public class DataCrudServlet extends HttpServlet {
+public class FormServlet extends HttpServlet {
 
+    
+    DataCrudInterface storeCrud = new StoreCrud();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -56,7 +58,8 @@ public class DataCrudServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setAttribute("data", storeCrud.readData());
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     /**
@@ -70,9 +73,42 @@ public class DataCrudServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            storeCrud.createData(
+            new Data(
+                    Integer.parseInt(request.getParameter("id")),
+                    request.getParameter("name"),
+                    Integer.parseInt(request.getParameter("age")),
+                    request.getParameter("test"),
+                    request.getParameter("ganre")
+            ));
+            doGet(request, response);
     }
-
+    
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+            int myId = Integer.parseInt(request.getParameter("id"));
+            storeCrud.updateData(myId,
+            new Data(
+                    myId,
+                    request.getParameter("name"),
+                    Integer.parseInt(request.getParameter("age")),
+                    request.getParameter("test"),
+                    request.getParameter("ganre")
+            ));
+            doGet(request, response);
+    }
+    
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        int ownnumber = Integer.parseInt(request.getParameter("number"));
+            storeCrud.deleteData(ownnumber);
+                    
+            doGet(request, response);
+    }
     /**
      * Returns a short description of the servlet.
      *

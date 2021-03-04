@@ -14,7 +14,6 @@
     <title>Khomik page`s</title>
   </head>
   <body>
-
     <header class="header">
         <div class="container header_container">
             <div class="logotipe">
@@ -48,13 +47,15 @@
                 </div>
             </div>
         </div>
+       
     </header>
+   </form>
     <div class="section">
             <div class="form_container">
             <h1 class="main_title">Fill the form</h1>
 
             <form class="form" action="<%=request.getContextPath()%>/form" method="post">
-            <input type="hidden" name="title" value="Submitted">
+            <input type="hidden" name="number" value="0"/>
             <p><input class="form__input" type="text" name="name" placeholder="First name" required></p>
             <p><input class="form__input" type="text" name="age" placeholder="Age" required></p>
             <span class="form__input">What are you like?</span>
@@ -80,6 +81,5 @@
         </form>
         </div>
     </div>
-
   </body>
 </html>
