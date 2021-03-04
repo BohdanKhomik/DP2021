@@ -16,24 +16,35 @@ public class Data implements Serializable{
     private int id;
     private String name;
     private int age;
-    private String email;
+    private String test;
+    private String ganre;
+    private int i0;
+
+    public String getGanre() {
+        return ganre;
+    }
+
+    public void setGanre(String ganre) {
+        this.ganre = ganre;
+    }
 
     public Data() {
     }
 
-    public Data(int id, String name, int age, String email) {
+    public Data(int id, String name, int age, String test, String ganre) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.email = email;
+        this.test = test;
+        this.test = ganre;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTest() {
+        return test;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTest(String test) {
+        this.test = test;
     }
 
     public int getId() {
@@ -62,7 +73,7 @@ public class Data implements Serializable{
 
     @Override
     public String toString() {
-        return "Data{" + "id=" + id + ", name=" + name + ", age=" + age + ", email=" + email + '}';
+        return "Data{" + "id=" + id + ", name=" + name + ", age=" + age + ", test=" + test + ", ganre=" + ganre + '}';
     }
     
 }
