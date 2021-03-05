@@ -55,7 +55,7 @@
             <h1 class="main_title">Fill the form</h1>
 
             <form class="form" action="<%=request.getContextPath()%>/" method="post">
-            <input type="hidden" name="number" value="0"/>
+            <input type="hidden" name="id" value="0"/>
             <p><input class="form__input" type="text" name="name" placeholder="First name" required></p>
             <p><input class="form__input" type="text" name="age" placeholder="Age" required></p>
             <span class="form__input">What are you like?</span>
