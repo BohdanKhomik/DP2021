@@ -53,14 +53,14 @@
             <p><input class="form__input" type="text" name="age" placeholder="Age" required></p>
             <span class="form__input">What are you like?</span>
             <div class="form_wrapper">
-                <input class="form__input" type="radio" name="test" value="films">
+                <input class="form__input" type="radio" name="test" value="films" required>
                 <label class="label" for="films">Films</label> 
                 <input class="form__input" type="radio" name="test" value="serials">
                 <label class="label" for="serials">Serials</label>
             </div>
             <span class="form__input">What ganre of Films are you like?</span>
             <div class="form__wrapper">
-                <input class="form__input" type="radio" name="ganre" value="fantastic">
+                <input class="form__input" type="radio" name="ganre" value="fantastic" required>
                 <label class="label" for="fantastic">Fantastic</label>
                 <input class="form__input" type="radio" name="ganre" value="realism">
                 <label class="label" for="realism">Realism</label>
