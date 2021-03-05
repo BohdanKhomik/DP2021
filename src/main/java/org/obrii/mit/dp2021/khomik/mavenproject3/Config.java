@@ -11,7 +11,8 @@ package org.obrii.mit.dp2021.khomik.mavenproject3;
  * @author ПК
  */
 public class Config {
-private static String fileName="";
+    
+    private static String fileName="";
     
     public static String getFileName(){
     return fileName;

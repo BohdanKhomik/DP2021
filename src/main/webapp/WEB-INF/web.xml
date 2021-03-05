@@ -2,15 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>FormServlet</servlet-name>
-        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.DataServlet</servlet-class>
+        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.FormUD</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DataCrudServlet</servlet-name>
-        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.FormServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SecondFormServlet</servlet-name>
-        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.SecondFormServlet</servlet-class>
+        <servlet-class>org.obrii.mit.dp2021.khomik.mavenproject3.UserDataServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FormServlet</servlet-name>
@@ -19,10 +15,6 @@
     <servlet-mapping>
         <servlet-name>DataCrudServlet</servlet-name>
         <url-pattern>/DataCrudServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SecondFormServlet</servlet-name>
-        <url-pattern>/SecondFormServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author ПК
  */
-public interface DataCrudInterface {
+public interface CrudDataInterface {
 
     void createData(Data addingData);
 
@@ -22,5 +22,5 @@ public interface DataCrudInterface {
     void writeData(List<Data> data);
     
     public List<Data> sortData(String phrase);
-    
+
 }
