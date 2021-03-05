@@ -4,23 +4,22 @@
  * and open the template in the editor.
  */
 package org.obrii.mit.dp2021.khomik.mavenproject3;
+
+import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author ПК
  */
-public interface DataCrudInterface {
-
-    void createData(Data addingData);
-
-    List<Data> readData();
-
-    void updateData(int id, Data data);
-
-    void deleteData(int id);
-
-    void writeData(List<Data> data);
+public class Config {
+private static String fileName="";
     
-    public List<Data> sortData(String phrase);
+    public static String getFileName(){
+    return fileName;
+    }
     
+    public static void setFileName(String aFileName){
+    fileName = aFileName;
+    }
 }

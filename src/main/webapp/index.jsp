@@ -48,7 +48,7 @@
     <div class="section ">
         <h1>Information table</h1>
         <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
+            <table>
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -73,22 +73,38 @@
                         <td><%=data.getAge()%></td>
                         <td><%=data.getTest()%></td>
                         <td><%=data.getGanre()%></td>
-                        <td></td>
+                        <td>
 
-                        <th><form action="upd_form.jsp" method="post">
+                        <form action="upd_form.jsp" method="post">
                                 <input type="hidden" name="id" value="<%=data.getId()%>"/>
                                 <input type="hidden" name="name" value="<%=data.getName()%>"/>
                                 <input type="hidden" name="age" value="<%=data.getAge()%>"/>
                                 <input type="hidden" name="test" value="<%=data.getTest()%>"/>
                                 <input type="hidden" name="ganre" value="<%=data.getGanre()%>"/>
-                                <div class="hero-cta"><input class="button3" type="submit" value="Update"></div></th>
+                                <div class="hero-cta"><input class="button3" type="submit" value="Update"></div>
                         </form>
-                        <th><form action="<%=request.getContextPath()%>/FormServlet" method="get">
-                                <input type="hidden" name="number" value="<%=data.getId()%>"/>
-                                <div class="hero-cta"><input class="button3" type="submit" value="Delete"></div>
-                            </form></th>
+                        <td>
+                        <td>
+                            <form action="<%=request.getContextPath()%>/FormServlet" method="get">
+                                <input type="hidden" name="id" value="<%=data.getId()%>">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                     <%}%>
+                    <tr>
+                           <td colspan="4">
+                               <form action= "<%=request.getContextPath()%>/" method="get">
+                                    <input type="text" name="search">
+                                    <input type="submit" value="search data">
+                               </form>
+                           </td>
+                            <td colspan="3">
+                                <form action="form.jsp" methd="get">
+                                    <input type="submit" value="ADD USER" >
+                                </form>
+                            </td>
+                        </tr>
                 </tbody>
             </table>
         </div>
