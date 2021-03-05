@@ -5,8 +5,6 @@
  */
 package org.obrii.mit.dp2021.khomik.mavenproject3;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
