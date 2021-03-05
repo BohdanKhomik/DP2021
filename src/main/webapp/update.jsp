@@ -9,8 +9,8 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/reset.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style.css">
     <title>Khomik page`s</title>
   </head>
   <body>
@@ -54,8 +54,8 @@
             <div class="form_container">
             <h1 class="main_title">Fill the form</h1>
 
-            <form class="form" action="<%=request.getContextPath()%>/form" method="post">
-            <input type="hidden" name="number" value="0"/>
+            <form class="form" action="<%=request.getContextPath()%>/Forma" method="post">
+            <input type="hidden" name="id" value="<%=request.getParameter("id")%>"/>
             <p><input class="form__input" type="text" name="name" value="<%=request.getParameter("name")%>" required></p>
             <p><input class="form__input" type="text" name="age" value="<%=request.getParameter("age")%>" required></p>
             <span class="form__input">What are you like?</span>

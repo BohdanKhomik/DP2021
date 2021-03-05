@@ -1,0 +1,56 @@
+<%-- 
+    Document   : index.jsp
+    Created on : 5 бер. 2021 р., 18:30:58
+    Author     : ПК
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Khomik page`s</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style.css">
+  </head>
+  <body>
+    <header class="header">
+        <div class="container header_container">
+            <div class="logotipe">
+                <div class="logo">
+                    <a class="log" href="#">Fine Serials</a>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="nav">
+                    <ul class="nav_ul">
+                        <li>
+                            <a class="nav_item" href="index.html"><span class="text">Main</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="menu.html"><span class="text">Films</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="about.html"><span class="text">Serials</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="contacts.html"><span class="text">Contacts</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="section ">
+        <div class="container section_container ">
+            <p class="section_subtitle ">The Bogdan Khomik Page`s</p>
+            <h1 class="section_title ">Student of Taras Shevchenko National University of Kyiv</h1>
+            <div class="section_title ">Young Web-Developer</div>
+            <form action="<%=request.getContextPath()%>/Data" method="get">
+                <button class="section_btn btn" type="submit">Create Form</button>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>

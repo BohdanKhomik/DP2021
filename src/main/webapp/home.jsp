@@ -13,8 +13,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Khomik page`s</title>
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/reset.css">
-    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css">
+    
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/reset.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/style.css">
   </head>
   <body>
       
@@ -47,7 +49,6 @@
         </div>
     </header>
       <div class="section">
-          <h1 class="title">Welcome to Leonid Lunin project!</h1>
           <%List<Data> dataList = (List<Data>) request.getAttribute("data");%>
           <table class="styled-table">
               <thead>
@@ -80,7 +81,7 @@
                           </form>
                       </td>
                       <td>
-                          <form action="<%=request.getContextPath()%>/form" method="get">
+                          <form action="<%=request.getContextPath()%>/Forma" method="get">
                               <input type="hidden" name="id" value="<%=data.getId()%>">
                               <input type="submit" value="Delete">
                           </form>
@@ -95,8 +96,8 @@
                           </form>
                       </td>
                       <td colspan="3">
-                          <form action="create.jsp" methd="get">
-                              <input type="submit" value="ADD USER" >
+                          <form action="form.jsp" methd="get">
+                              <input type="submit" value="add data" >
                           </form>
                       </td>
                   </tr>

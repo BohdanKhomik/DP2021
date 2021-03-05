@@ -24,40 +24,59 @@ import java.util.logging.Logger;
 
 public class FilesCrud implements CrudDataInterface {
 
-    private Logger logger;
     private File file;
 
     public FilesCrud() {
-        logger=Logger.getLogger(FilesCrud.class.getName());
     }
 
     public FilesCrud(File file) {
-        logger=Logger.getLogger(FilesCrud.class.getName());
         this.file = file;
     }
 
     @Override
     public void writeData(List<Data> data) {
 
-        try ( FileOutputStream f = new FileOutputStream(file);  
-              ObjectOutputStream o = new ObjectOutputStream(f)) {
+        try ( FileOutputStream f = new FileOutputStream(file);  ObjectOutputStream o = new ObjectOutputStream(f)) {
 
             data.forEach(d -> {
                 try {
                     o.writeObject(d);
                 } catch (IOException ex) {
-                    logger.log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FilesCrud.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
 
         } catch (FileNotFoundException ex) {
-            logger.log(Level.SEVERE, null, ex);
+            Logger.getLogger(FilesCrud.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            logger.log(Level.SEVERE, null, ex);
+            Logger.getLogger(FilesCrud.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
+      @Override
+    public List<Data> searchData(String s) {
+
+ 
+       
+            
+            List<Data> newData = new ArrayList<>();
+        for (Data d : this.readData()) {
+            
+            if(d.getName().contains(s)){
+                newData.add(d);}
+                
+            
+        }
+        
+
+            return newData;
+
+        
+
+    }
+    
+    
     @Override
     public List<Data> readData() {
 
@@ -66,7 +85,9 @@ public class FilesCrud implements CrudDataInterface {
             while (f.available() > 0) {
                 result.add((Data) o.readObject());
             }
+
             return result;
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FilesCrud.class.getName()).log(Level.SEVERE, null, ex);
             return new ArrayList<Data>();
@@ -74,6 +95,7 @@ public class FilesCrud implements CrudDataInterface {
             Logger.getLogger(FilesCrud.class.getName()).log(Level.SEVERE, null, ex);
             return new ArrayList<Data>();
         }
+
     }
 
     @Override
@@ -82,6 +104,7 @@ public class FilesCrud implements CrudDataInterface {
         addingData.setId(data.size());
         data.add(addingData);
         this.writeData(data);
+
     }
 
     @Override
@@ -107,6 +130,19 @@ public class FilesCrud implements CrudDataInterface {
         this.writeData(newData);
     }
 
+       public void stData() {        
+        List<Data> newData = new ArrayList<>();
+        int i = 0;
+        for (Data d : this.readData()) {
+            d.setId(i);
+            i++;
+                newData.add(d);
+            
+        }
+        this.writeData(newData);
+    }
+
+    
     public File getFile() {
         return file;
     }
@@ -115,12 +151,4 @@ public class FilesCrud implements CrudDataInterface {
         this.file = file;
     }
 
-    public List<Data> sortData(String phrase) {
-        List<Data> newData = new ArrayList<>();
-        for (Data d : this.readData()) {
-            if(d.getName().contains(phrase)){
-                newData.add(d);}
-        }
-            return newData;
-    }
 }

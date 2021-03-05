@@ -56,7 +56,14 @@ public class Data implements Serializable{
     public void setAge(int age) {
         this.age = age;
     }
+    
+    public String getTest() {
+        return test;
+    }
 
+    public void setTest(String test) {
+        this.test = test;
+    }
     public String getGanre() {
         return ganre;
     }
@@ -66,17 +73,16 @@ public class Data implements Serializable{
     }
     
     
-    public String getTest() {
-        return test;
-    }
 
-    public void setTest(String test) {
-        this.test = test;
-    }
     
     @Override
     public String toString() {
-        return "Data{" + "id=" + id + ", name=" + name + ", age=" + age + ", test=" + test + ", ganre=" + ganre + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Data{id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", age=").append(age);
+        sb.append('}');
+        return sb.toString();
     }
     
 }
