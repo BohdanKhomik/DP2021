@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 
 public class FilesCrud implements CrudDataInterface {
 
-   private Logger logger;
+    private Logger logger;
     private File file;
 
     public FilesCrud() {

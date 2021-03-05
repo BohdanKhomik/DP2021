@@ -12,11 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.obrii.mit.dp2021.khomik.mavenproject3.UserDataServlet;
 
 @WebServlet(name = "FormUD", urlPatterns = {"/form"})
 public class FormUD extends HttpServlet {
     UserDataServlet userServlet = new UserDataServlet();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

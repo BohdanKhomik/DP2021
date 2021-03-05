@@ -7,9 +7,7 @@ and open the template in the editor.
     Created on : 10 лют. 2021 р., 19:00:10
     Author     : ПК
 */
-* {
-    box-sizing: border-box;
-}
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -280,9 +278,6 @@ body {
     z-index: 100;
 }
 
-.teb{
-    z-index:250;
-}
 @media(max-width: 1200px) {
     .nav_item {
         font-size: 16px;

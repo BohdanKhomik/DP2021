@@ -5,18 +5,11 @@
  */
 package org.obrii.mit.dp2021.khomik.mavenproject3;
 
-import java.io.File;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author ПК
  */
+
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -62,23 +55,23 @@ public class UserDataServlet extends HttpServlet {
     }
 
     @Override
-    public void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Delete User
         CRUD.deleteData(Integer.parseInt(req.getParameter("id")));
         doGet(req, resp); 
     }
 
     @Override
-    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //Update User
         Data user = new Data(
-            Integer.parseInt(req.getParameter("id")),
-            req.getParameter("name"),
-            Integer.parseInt(req.getParameter("age")),
-            req.getParameter("test"),
-            req.getParameter("ganre")
+                Integer.parseInt(req.getParameter("id")),
+                req.getParameter("name"),
+                Integer.parseInt(req.getParameter("age")),
+                req.getParameter("test"),
+                req.getParameter("ganre")
         );
         CRUD.updateData(Integer.parseInt(req.getParameter("id")), user);
-        doGet(req, resp); 
+        doGet(req, resp);
     }
 }
