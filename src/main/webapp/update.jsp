@@ -101,11 +101,11 @@
                 <label class="label" for="any">Any</label>
                 <%}%>
                 
-                <button class="section_btn btn" type="submit">Update</button>
+
             </div>
-            
-            
-            <button class="section_btn btn" href="<%=request.getContextPath()%>">Return</button>
+                
+                <p class="razdel"><button class="section_btn btn" type="submit">Update</button></p>
+                <p><button class="section_btn btn" href="<%=request.getContextPath()%>">Return</button></p>
             
         </form>
         </div>
