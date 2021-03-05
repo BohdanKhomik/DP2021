@@ -124,9 +124,6 @@ public class DataServlet extends HttpServlet {
         
         );
        dataCrud.stData();
-      // for (int i = dataCrud.readData().size(); i > 0; i--){
-  //  System.out.printf("Квадрат числа %d равен %d \n", i, i * i);
-//}
        
        
         doGet(request, response);

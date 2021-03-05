@@ -56,7 +56,7 @@
                       <th>id</th>
                       <th>name</th>
                       <th>age</th>
-                      <th>taste</th>
+                      <th>type</th>
                       <th>ganre</th>
                       <th>update</th>
                       <th>delete</th>
@@ -77,34 +77,32 @@
                               <input type="hidden" name="age" value="<%=data.getAge()%>">
                               <input type="hidden" name="test" value="<%=data.getTest()%>">
                               <input type="hidden" name="ganre" value="<%=data.getGanre()%>">
-                              <input type="submit" value="Update">
+                              <input class="table_btn"type="submit" value="Update">
                           </form>
                       </td>
                       <td>
                           <form action="<%=request.getContextPath()%>/Forma" method="get">
                               <input type="hidden" name="id" value="<%=data.getId()%>">
-                              <input type="submit" value="Delete">
+                              <input class="table_btn" type="submit" value="Delete">
                           </form>
                       </td>
                   </tr>
                   <%}%>
                   <tr>
                       <td colspan="4">
-                          <form action= "<%=request.getContextPath()%>/" method="get">
-                              <input type="text" name="search">
-                              <input type="submit" value="search data">
+                          <form action= "<%=request.getContextPath()%>/Data" method="get">
+                              <input class="table_btn" type="text" name="search">
+                              <input class="table_btn" type="submit" value="search data">
                           </form>
                       </td>
                       <td colspan="3">
                           <form action="form.jsp" methd="get">
-                              <input type="submit" value="add data" >
+                              <input class="table_btn" type="submit" value="add data" >
                           </form>
                       </td>
                   </tr>
               </tbody>
           </table>
-
-
       </div>
 	
 	

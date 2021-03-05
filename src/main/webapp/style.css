@@ -174,7 +174,7 @@ body {
 
 .section {
     height: 100vh;
-    background: #0e1419 url(../imgs/bg.jpg) no-repeat center;
+    background: #0e1419 url(assets/imgs/bg.jpg) no-repeat center;
     background-size: cover;
     color: #fff;
     display: flex;
@@ -276,6 +276,60 @@ body {
 }
 .inner{
     z-index: 100;
+}
+.table_btn{
+    border-radius: 15px;
+    padding: 10px 20px;
+    background: #b19eb1;
+    color: black;
+    cursor: pointer;
+}
+.table_btn:hover{
+    background: #bb84bb;
+    color: white;
+    cursor: pointer;
+    
+}
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 18px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+}
+th {
+    background: #ffa650;
+    color: white;
+    text-shadow: 0 1px 1px #2D2020;
+    padding: 13px 26px;
+}
+th, td {
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    border-color: white;
+}
+th:first-child, td:first-child {
+    text-align: left;
+}
+th:first-child {
+    border-top-left-radius: 10px;
+}
+th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+td {
+    padding: 13px 26px;
+    background: #cec9cee;
+}
+tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+tr td:last-child {
+    border-right: none;
 }
 
 @media(max-width: 1200px) {

@@ -29,7 +29,7 @@ public class Data implements Serializable{
         this.name = name;
         this.age = age;
         this.test = test;
-        this.test = ganre;
+        this.ganre = ganre;
     }
 
 
@@ -81,6 +81,8 @@ public class Data implements Serializable{
         sb.append("Data{id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", age=").append(age);
+        sb.append(", test=").append(test);
+        sb.append(", ganre=").append(ganre);
         sb.append('}');
         return sb.toString();
     }
