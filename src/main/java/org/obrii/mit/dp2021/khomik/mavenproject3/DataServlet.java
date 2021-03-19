@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DataServlet extends HttpServlet {
 
     
-    PostgresCrud dataCrud = new PostgresCrud();
+    PostgressConnection dataCrud = new PostgressConnection();
 
      
    
@@ -51,11 +51,6 @@ public class DataServlet extends HttpServlet {
         request.getParameter("ganre")
         )
         );
-        
-        
-        
-        
-        
         
         doGet(request, response);
     }

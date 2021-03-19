@@ -18,25 +18,25 @@ import java.util.logging.Logger;
  */
 
 
-public class PostgresCrud {
+public class PostgressConnection {
     
     private Logger logger;
     private Statement statement;
-    private Connection conn;
-    int id = 1;
-    public PostgresCrud() {
+    private Connection connections;
+    int id=1;
+    public PostgressConnection() {
         try {
             Class.forName("org.postgresql.Driver");
-            this.conn = DriverManager.getConnection("jdbc:postgresql://obrii.org:5432/db2021mit21s18", "s18", "7803");
-            this.conn.setAutoCommit(false);
-            this.statement = this.conn.createStatement();
+            this.connections = DriverManager.getConnection("jdbc:postgresql://obrii.org:5432/db2021mit21s18", "s18", "7803");
+            this.connections.setAutoCommit(false);
+            this.statement = this.connections.createStatement();
         } 
         catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }
-        sql("CREATE TABLE IF NOT EXISTS customers ("
+        PostgresSQL("CREATE TABLE IF NOT EXISTS userInfo ("
                         + "id integer primary key not null, "
                         + "name text not null, "
                         + "age integer not null, "
@@ -46,10 +46,10 @@ public class PostgresCrud {
   
     }
    
-    public void sql(String stok){
+    public void PostgresSQL(String info){
         try{
-            statement.executeUpdate(stok);
-            conn.commit();
+            statement.executeUpdate(info);
+            connections.commit();
         }
         catch(SQLException e){
              logger.log(Level.WARNING, null, e);
@@ -58,7 +58,7 @@ public class PostgresCrud {
     
     public List<Data> readData() {
         try {
-            ResultSet result = this.statement.executeQuery("SELECT * FROM customers");
+            ResultSet result = this.statement.executeQuery("SELECT * FROM userInfo");
             List<Data> data = new ArrayList<>();
 
             while (result.next()) {
@@ -87,20 +87,20 @@ public class PostgresCrud {
         }
         data.setId(this.id);
         id=id+1;
-        sql(String.format("INSERT INTO customers (id, name, age, test, ganre) VALUES (%d, '%s', %d, '%s', '%s');",
+        PostgresSQL(String.format("INSERT INTO userInfo (id, name, age, test, ganre) VALUES (%d, '%s', %d, '%s', '%s');",
                 data.getId(), data.getName(), data.getAge(), data.getTest(), data.getGanre()));
     }
 
     public void deleteData(int id) {        
-        sql("DELETE FROM customers WHERE id=" + id);
+        PostgresSQL("DELETE FROM userInfo WHERE id=" + id);
     }
     
     public void updateData(int id, Data data) {  
-        sql(String.format("UPDATE customers "
+        PostgresSQL(String.format("UPDATE userInfo "
                         + "SET name='" + data.getName() + "' , "
-                        + "age=" + data.getAge()
-                        + "SET test='" + data.getTest() + "' , "
-                        + "SET ganre='" + data.getGanre() + "' , "
+                        + "age=" + data.getAge() + " , "
+                        + "test='" + data.getTest() + "' , "
+                        + "ganre='" + data.getGanre() + "' "
                 + "WHERE id="+id)
         );
     }
