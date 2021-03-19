@@ -10,7 +10,6 @@ package org.obrii.mit.dp2021.khomik.mavenproject3;
  * @author ПК
  */
 
-import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,40 +21,13 @@ import javax.servlet.http.HttpServletResponse;
 public class DataServlet extends HttpServlet {
 
     
-   // DataCrudInterface dataCrud = new StoreCrud();
-            CrudDataInterface dataCrud = new FilesCrud(new File(Config.getFileName()));
-       //   dataCrud.setFileName(new File("feef.txt"));
-            //StoreCrud(File file)
-            
-            
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    PostgresCrud dataCrud = new PostgresCrud();
 
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+     
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-                if (Config.getFileName().equals("")) {
-            Config.setFileName(this.getServletContext().getRealPath("") + "data.txt");
-            dataCrud = new FilesCrud(new File(Config.getFileName()));
-        }
                 
                 if(request.getParameter("search")!=null){
                 request.setAttribute("data", dataCrud.searchData(request.getParameter("search")));
@@ -64,21 +36,8 @@ public class DataServlet extends HttpServlet {
                 request.setAttribute("data", dataCrud.readData());
                 }
                 request.getRequestDispatcher("home.jsp").forward(request, response); 
-        
-        
-        
-        
-        
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -116,27 +75,22 @@ public class DataServlet extends HttpServlet {
         );
        doGet(request, response);
     }
-      @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+       protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          int myId = Integer.parseInt(request.getParameter("id"));
-       dataCrud.deleteData(myId
-        
-        );
-       dataCrud.stData();
-       
-       
-        doGet(request, response);
+       dataCrud.deleteData(myId);
+       doGet(request, response);
        
     }
+       
+     @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+
     /**
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
