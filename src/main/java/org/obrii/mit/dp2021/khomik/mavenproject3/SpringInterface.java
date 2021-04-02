@@ -1,3 +1,4 @@
+package org.obrii.mit.dp2021.khomik.mavenproject3;
 
 import javax.xml.crypto.Data;
 import org.springframework.data.repository.CrudRepository;
@@ -9,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author œ 
+ * @author –ü–ö
  */
 public interface SpringInterface extends CrudRepository<Data , Integer> {
     

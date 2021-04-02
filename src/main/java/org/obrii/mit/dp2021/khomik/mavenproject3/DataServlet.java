@@ -37,16 +37,14 @@ public class DataServlet extends HttpServlet {
     
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-                
-                if(request.getParameter("search")!=null){
-                request.setAttribute("data", DBSpring.sortData(request.getParameter("search")));
-                }
-                else{
-                request.setAttribute("data", DBSpring.readData());
-                }
-                request.getRequestDispatcher("home.jsp").forward(request, response); 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getParameter("search")!=null){
+            request.setAttribute("data", DBSpring.sortData(request.getParameter("search")));
+            }
+        else{
+            request.setAttribute("data", DBSpring.readData());
+        }
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     @Override
