@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class DataBaseSpring {
-    int id=1;
+
     
     
     @Autowired
@@ -49,8 +49,7 @@ public class DataBaseSpring {
     }
     
     public void createData(Data data){
-        //data.setId(this.id);
-        //id++;
+
         DBInterface.save(data);
     }
     
