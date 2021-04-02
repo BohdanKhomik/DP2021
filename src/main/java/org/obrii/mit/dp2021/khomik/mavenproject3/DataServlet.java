@@ -11,29 +11,40 @@ package org.obrii.mit.dp2021.khomik.mavenproject3;
  */
 
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.Spring;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
 
 @WebServlet(name = "DataServlet", urlPatterns = {"/Data"})
 public class DataServlet extends HttpServlet {
 
-    
-    PostgressConnection dataCrud = new PostgressConnection();
+    @Autowired
+    Spring Spring;
 
-     
-   
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,config.getServletContext());
+    }
+    
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 
                 if(request.getParameter("search")!=null){
-                request.setAttribute("data", dataCrud.searchData(request.getParameter("search")));
+                request.setAttribute("data", DBSpring.sortData(request.getParameter("search")));
                 }
                 else{
-                request.setAttribute("data", dataCrud.readData());
+                request.setAttribute("data", DBSpring.readData());
                 }
                 request.getRequestDispatcher("home.jsp").forward(request, response); 
     }
@@ -42,7 +53,7 @@ public class DataServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-        dataCrud.createData(
+        DBSpring.createData(
         new Data(
         Integer.parseInt(request.getParameter("id")),
         request.getParameter("name"),
@@ -59,7 +70,7 @@ public class DataServlet extends HttpServlet {
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        int myId = Integer.parseInt(request.getParameter("id"));
-       dataCrud.updateData(myId,
+        DBSpring.updateData(myId,
         new Data(
         Integer.parseInt(request.getParameter("id")),
         request.getParameter("name"),
@@ -73,7 +84,7 @@ public class DataServlet extends HttpServlet {
        protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          int myId = Integer.parseInt(request.getParameter("id"));
-       dataCrud.deleteData(myId);
+       DBSpring.deleteData(myId);
        doGet(request, response);
        
     }

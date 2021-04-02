@@ -7,6 +7,7 @@ package org.obrii.mit.dp2021.khomik.mavenproject3;
  */
 
 import java.io.IOException;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "FormUPD", urlPatterns = {"/Forma"})
 public class FormUPD extends HttpServlet {
-    
     DataServlet dataServlet = new DataServlet();
     
     /**
@@ -38,10 +38,19 @@ public class FormUPD extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+     @Override
+    public void init(ServletConfig config) throws ServletException {
+    super.init(config);
+    
+    DataServlet dataServlet = new DataServlet();
+    dataServlet.init(config);
+    }
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      dataServlet.doDelete(request,response);
+            dataServlet.doDelete(request,response);
     }
 
     /**
