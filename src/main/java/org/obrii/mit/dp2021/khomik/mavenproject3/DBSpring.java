@@ -20,12 +20,12 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class Spring {
+public class DBSpring {
       
     @Autowired
     SpringInterface DBInterface;
     
-    public Spring(){
+    public DBSpring(){
     }
     
     public Iterable<Data> readData(){
