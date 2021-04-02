@@ -14,18 +14,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Iterable;
-import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
 @Component
-public class DBSpring {
-      
-     @Autowired
+
+public class DataBaseSpring {
+    int id=1;
+    
+    
+    @Autowired
     SpringInterface DBInterface;
     
-    public DBSpring(){
+    public DataBaseSpring(){
     }
     
     public Iterable<Data> readData(){
@@ -48,6 +49,8 @@ public class DBSpring {
     }
     
     public void createData(Data data){
+        //data.setId(this.id);
+        //id++;
         DBInterface.save(data);
     }
     
@@ -60,7 +63,7 @@ public class DBSpring {
         update.setName(data.getName());
         update.setAge(data.getAge());
         update.setTest(data.getTest());
-        update.setGanre(data.getGanrel());
+        update.setGanre(data.getGanre());
         DBInterface.save(update);
     }
  }

@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.Spring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -27,67 +26,58 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 public class DataServlet extends HttpServlet {
 
     @Autowired
-    Spring Spring;
+    DataBaseSpring DBSpring;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,config.getServletContext());
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
-    
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getParameter("search")!=null){
+        if (request.getParameter("search") != null) {
             request.setAttribute("data", DBSpring.sortData(request.getParameter("search")));
-            }
-        else{
+        } else {
             request.setAttribute("data", DBSpring.readData());
         }
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-      
-        DBSpring.createData(
-        new Data(
-        Integer.parseInt(request.getParameter("id")),
-        request.getParameter("name"),
-        Integer.parseInt(request.getParameter("age")),
-        request.getParameter("test"),
-        request.getParameter("ganre")
-        )
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Data user = new Data(
+                Integer.parseInt(request.getParameter("id")),
+                request.getParameter("name"),
+                Integer.parseInt(request.getParameter("age")),
+                request.getParameter("test"),
+                request.getParameter("ganre")
         );
-        
+        DBSpring.createData(user);
         doGet(request, response);
     }
 
-      @Override
-    protected void doPut(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       int myId = Integer.parseInt(request.getParameter("id"));
-        DBSpring.updateData(myId,
-        new Data(
-        Integer.parseInt(request.getParameter("id")),
-        request.getParameter("name"),
-        Integer.parseInt(request.getParameter("age")),
-        request.getParameter("test"),
-        request.getParameter("ganre")
-        )
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException {
+        Data user = new Data(
+                Integer.parseInt(request.getParameter("id")),
+                request.getParameter("name"),
+                Integer.parseInt(request.getParameter("age")),
+                request.getParameter("test"),
+                request.getParameter("ganre")
         );
-       doGet(request, response);
+        DBSpring.updateData(user, Integer.parseInt(request.getParameter("id")));
+        doGet(request, responce);
     }
-       protected void doDelete(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         int myId = Integer.parseInt(request.getParameter("id"));
-       DBSpring.deleteData(myId);
-       doGet(request, response);
-       
+
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException {
+        DBSpring.deleteData(Integer.parseInt(request.getParameter("id")));
+        doGet(request, responce); 
     }
-       
-     @Override
+
+    @Override
     public String getServletInfo() {
         return "Short description";
     }

@@ -23,6 +23,6 @@ public interface CrudDataInterface {
 
     public void writeData(List<Data> data);
 
-    public void stData();
+    public void sortData();
 
 }
