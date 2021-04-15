@@ -43,9 +43,9 @@ and open the template in the editor.
         </header>
         <div class="section ">
             <div th:switch="${users}">
-                <h2 class="section_subtitle" th:case="null">No users yet!</h2>
+                <h2 class="section_subtitle" th:case="null">There are no users!</h2>
                 <div th:case="*">
-                    <h2>Users</h2>
+                    <h2 class="section_subtitle">Users</h2>
                     <table>
                         <thead>
                             <tr>
