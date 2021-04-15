@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Khomik page`s</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{css/reset.css}">
+        <link rel="stylesheet" th:href="@{css/style.css}">
+    </head>
+    <body>
+        <header class="header">
+        <div class="container header_container">
+            <div class="logotipe">
+                <div class="logo">
+                    <a class="log" href="#">Fine Serials</a>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="nav">
+                    <ul class="nav_ul">
+                        <li>
+                            <a class="nav_item" href="#"><span class="text">Main</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="#"><span class="text">Films</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="#"><span class="text">Serials</span></a>
+                        </li>
+                        <li>
+                            <a class="nav_item" href="#"><span class="text">Contacts</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       
+    </header>
+        <div class="section ">
+            <div class="form_container">
+                <h1 class="main_title">Fill the form</h1>
+                <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+                    <p><input class="form__input" type="text" th:field="*{name}" id="name" placeholder="First name" required></p>
+
+
+                    <p><input class="form__input" type="text" th:field="*{email}" id="email" placeholder="Email" required></p>
+
+                    <p><input class="form__input" type="text" th:field="*{actor}" id="actor" placeholder="Favorite actor" required></p>
+                    
+                    <span class="form__input">What are you like?</span>
+                    <div class="form_wrapper">
+                        <input class="form__input" type="radio" th:field="*{test}" id="test" value="films" required>
+                        <label class="label" for="films">Films</label> 
+                        <input class="form__input" type="radio" th:field="*{test}" id="test" value="serials" required>
+                        <label class="label" for="serials">Serials</label>
+
+                    </div>
+                    <span class="form__input">What ganre of Films are you like?</span>
+                    <div class="form__wrapper">
+                        <input class="form__input" type="radio" th:field="*{ganre}" id="ganre" value="fantastic" required>
+                        <label class="label" for="fantastic">Fantastic</label>
+                        <input class="form__input" type="radio" th:field="*{ganre}" id="ganre" value="realism" required>
+                        <label class="label" for="realism">Realism</label>
+                        <input class="form__input" type="radio" th:field="*{ganre}" id="ganre" value="any" required>
+                        <label class="label" for="any">Any</label>
+
+                    </div>
+
+                    <button class="section_btn btn" type="submit">Submit</button> 
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

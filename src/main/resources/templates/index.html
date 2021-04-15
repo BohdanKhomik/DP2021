@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Khomik page`s</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{css/reset.css}">
+        <link rel="stylesheet" th:href="@{css/style.css}">
+    </head>
+    <body>
+        <header class="header">
+            <div class="container header_container">
+                <div class="logotipe">
+                    <div class="logo">
+                        <a class="log" href="#">Fine Serials</a>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <div class="nav">
+                        <ul class="nav_ul">
+                            <li>
+                                <a class="nav_item" href="#"><span class="text">Main</span></a>
+                            </li>
+                            <li>
+                                <a class="nav_item" href="#"><span class="text">Films</span></a>
+                            </li>
+                            <li>
+                                <a class="nav_item" href="#"><span class="text">Serials</span></a>
+                            </li>
+                            <li>
+                                <a class="nav_item" href="#"><span class="text">Contacts</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="section ">
+            <div th:switch="${users}">
+                <h2 class="section_subtitle" th:case="null">No users yet!</h2>
+                <div th:case="*">
+                    <h2>Users</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Actor</th>
+                                <th>Test</th>
+                                <th>Ganre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.actor}"></td>
+                                <td th:text="${user.test}"></td>
+                                <td th:text="${user.ganre}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>      
+                <form action="./signup" method="get">
+                    <button class="section_btn btn" type="submit">Create Form</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
