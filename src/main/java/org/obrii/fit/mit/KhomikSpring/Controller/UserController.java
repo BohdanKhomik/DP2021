@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author ПК
  */
 @Controller
-        //("/")
+
 public class UserController {
     
     @Autowired
@@ -47,5 +47,5 @@ public class UserController {
         
         return "index";
     }
-    // additional CRUD methods
+
 }

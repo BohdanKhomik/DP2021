@@ -44,7 +44,7 @@ and open the template in the editor.
         <div class="section ">
             <div class="form_container">
                 <h1 class="main_title">Fill the form</h1>
-                <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+                <form action="add-form" th:action="@{/adduser}" th:object="${user}" method="post">
                     <p><input class="form__input" type="text" th:field="*{name}" id="name" placeholder="First name" required></p>
 
 
