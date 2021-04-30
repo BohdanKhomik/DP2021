@@ -12,10 +12,6 @@ package org.obrii.fit.mit.KhomikSpring.Domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import org.springframework.stereotype.Component;
 
 
@@ -29,6 +25,8 @@ public class Student {
     
     private String name;
     
+    private String email;
+
     private int age;
     
     @JsonProperty("_links")
@@ -42,9 +40,11 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, int age) {
+    public Student(String name, String email, int age) {
         this.name = name;
+        this.email = email;
         this.age = age;
+        
     }
     
 
@@ -72,11 +72,21 @@ public class Student {
         this.age = age;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Student{id=").append(id);
         sb.append(", name=").append(name);
+        sb.append(", email=").append(email);
         sb.append(", age=").append(age);
         sb.append(", links=").append(links);
         sb.append(", href=").append(href);

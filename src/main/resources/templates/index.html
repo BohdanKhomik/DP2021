@@ -50,7 +50,11 @@ and open the template in the editor.
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Email</th>
                                 <th>Age</th>
+                                <th></th>
+                                <th>Delete</th>
+                                
                                 <!--
                                 <th>Actor</th>
                                 <th>Test</th>
@@ -61,7 +65,11 @@ and open the template in the editor.
                         <tbody>
                             <tr th:each="student : ${students}">
                                 <td th:text="${student.name}"></td>
+                                <td th:text="${student.email}"></td>
                                 <td th:text="${student.age}"></td>
+                        
+<!--                        <th>Edit</th>
+                        <th>Delete</th>-->
                                 <!--
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.actor}"></td>
@@ -70,10 +78,11 @@ and open the template in the editor.
                                 -->
                                 <td>
                                     <form action="./update" method="post">
-                                        <input type="hidden" name="url" th:value="${student.getHref()}">
-                                        <input type="text" name="name" th:value="${student.name}"/>
-                                        <input type="text" name="age" th:value="${student.age}"/>
-                                        <button class="section_btn btn" type="submit">Update</button>
+                                        <input type="hidden"  name="url" th:value="${student.getHref()}">
+                                        <input type="text" class="table_btn" name="name" th:value="${student.name}"/>
+                                        <input type="text" class="table_btn" name="email" th:value="${student.email}"/>
+                                        <input type="text" class="table_btn" name="age" th:value="${student.age}"/>
+                                        <button class="table_btn" type="submit">Update</button>
 
 
                                     </form> 
@@ -81,21 +90,26 @@ and open the template in the editor.
                                 <td>
                                     <form action="./del" method="post">
                                         <input type="hidden" name="url" th:value="${student.getHref()}">
-                                        <button class="section_btn btn" type="submit">Delete</button>
+                                        <button class="table_btn" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>
                             <tr>
                                 <form action="./post" method="post">
-                                <td><input type="text" name="name" /></td> 
-                                <td><input type="text" name="age" /></td> 
-                                <td colspan="2"><button class="section_btn btn" type="submit">Post</button></td> 
+                                <td><input class="table_btn" type="text" name="name" /></td> 
+                                <td><input class="table_btn" type="text" name="email" /></td> 
+                                <td><input class="table_btn" type="text" name="age" /></td>
+                                <td colspan="2"><button class="table_btn" type="submit">Create User</button></td> 
                                 </form> 
                             </tr>
                         </tbody>
                     </table>
-                </div>      
+                </div>
+                <form action="./getMessage">
+                    <button  type="submit" class="section_btn btn"><span>Start Work</span></button>
+                </form>
             </div>
         </div>
+        
     </body>
 </html>

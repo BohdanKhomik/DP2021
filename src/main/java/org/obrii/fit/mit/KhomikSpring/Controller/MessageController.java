@@ -21,9 +21,9 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class MessageController {
 
-    private final String URL = "http://localhost:8090/student";
+    private final String URL = "http://dp2021.mit.obrii.org/KhomikWEB/Lab7service/student";
 
-    @Autowired
+        @Autowired
     RestTemplate restTemplate;
 
     @GetMapping("/getMessage")
@@ -40,11 +40,12 @@ public class MessageController {
 
     @PostMapping("/update")
     public String updateData(@RequestParam(name = "name") String name,
+            @RequestParam(name = "email") String email,
             @RequestParam(name = "age") String age,
             @RequestParam(name = "url") String url,
             Model model) {
 
-        restTemplate.put(url, new Student(name,Integer.parseInt(age)));
+        restTemplate.put(url, new Student(name,email,Integer.parseInt(age)));
 
         Embedded messageEntity = restTemplate.getForObject(URL, Embedded.class);
         
@@ -66,13 +67,12 @@ public class MessageController {
     
     @PostMapping("/post")
     public String postData(@RequestParam(name = "name") String name,
+            @RequestParam(name = "email") String email,
             @RequestParam(name = "age") String age,
             
             Model model) {
 
-        restTemplate.postForObject(URL, new Student(name,Integer.parseInt(age)), Student.class);
-
+        restTemplate.postForObject(URL, new Student(name,email,Integer.parseInt(age)), Student.class);
         return getFormData(model);
     }
-    
 }

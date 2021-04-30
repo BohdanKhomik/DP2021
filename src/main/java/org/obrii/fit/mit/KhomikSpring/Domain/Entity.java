@@ -13,6 +13,8 @@ public class Entity {
     
     private  long id;
     private  String name;
+    private  String email;
+
     private int age;
 
     public Entity() {
@@ -41,5 +43,12 @@ public class Entity {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
